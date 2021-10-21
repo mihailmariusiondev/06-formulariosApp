@@ -12,6 +12,12 @@ export class BasicosComponent implements OnInit {
   // Para observar cambios en un elemento en el DOM
   @ViewChild('miFormulario') miFormulario!: NgForm;
 
+  initForm = {
+    producto: 'RTX 4080ti',
+    precio: 10,
+    existencias: 10
+  }
+
   constructor() { }
 
   ngOnInit(): void {
@@ -30,6 +36,11 @@ export class BasicosComponent implements OnInit {
   // guardar(miFormulario: NgForm) {
   guardar() {
     console.log(this.miFormulario);
+    this.miFormulario.resetForm({
+      producto: 'Reset',
+      precio: 0,
+      existencias: 0
+    });
   }
 
 }
